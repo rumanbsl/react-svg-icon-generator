@@ -28,8 +28,9 @@ configureSvgIcon({
   svgDir: './icons',
 });
 ```
+
 - **svgDir** (required) - path to your directory with svg files. Can be relative path but it is better to use `path.join(__dirname, 'icons')` absolute path so it will work in any directory of project
-- **destination** (required) -  path.join(__dirname, 'components', 'Icon.js'),
+- **destination** (required) -  path.join(__dirname, 'components', 'Icon.js')
 
 run it by `gulp svg-icon`
 
@@ -47,11 +48,11 @@ configureSvgIcon({
 });
 ```
 
-- **comment** (optional) - it will be added to generated component, so other developer will know what to do
-)
-- **reactPureRender** (optional) - it will use `import Component from 'react-pure-render/component';` instead of `import {Component} from 'react';`
-)
-- **template** (optional) - provide path to your custom template, you can look at example at (https://github.com/blueberryapps/react-svg-icon-generator/blob/master/template/icon.nunjucks)
+
+- **comment** (optional) - it will be added to generated component, so other developer will know what to do
+- **reactPureRender** (optional) - it will use `import Component from 'react-pure-render/component';` instead of `import {Component} from 'react';`
+- **template** (optional) - provide path to your custom template, you can look at example at [Icon.template](https://github.com/blueberryapps/react-svg-icon-generator/blob/master/template/icon.nunjucks)
+
 
 run it by `gulp svg-icon`
 
