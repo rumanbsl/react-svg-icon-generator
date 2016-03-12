@@ -7,6 +7,9 @@ Generate React Icon Component from SVG icons to show, resize and recolor them.
 
 ![Preview](https://raw.githubusercontent.com/blueberryapps/react-svg-icon/master/examples/previews.png)
 
+[source directory with SVG](https://github.com/blueberryapps/react-svg-icon-generator/tree/master/examples/simple/icons) and [this is output component from gulp task](https://github.com/blueberryapps/react-svg-icon-generator/blob/master/examples/simple/components/Icon.js) so in production you are without any dependencies at all.
+
+
 ## Instalation
 
 you need to add this just to development, because it will generate self contained react component directly to your codebase
