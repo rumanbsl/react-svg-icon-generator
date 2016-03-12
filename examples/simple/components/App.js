@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
-import { add } from 'library-boilerplate';
+import Icon from './Icon';
 
 export default class App extends Component {
   render() {
     return (
-      <p>
-        2 + 2 = {add(2, 2)}
-      </p>
+      <div>
+        Simple possible usage
+        <Icon kind='clock' />
+
+        Setup color and bounding width and height
+        <Icon kind='close' color='#748' width={200} height={100} />
+
+        Setup color and bounding width and height to size (square)
+        <Icon kind='close' color='red' size={300} />
+
+        Show all icons with description (for finding right icon)
+        <Icon preview />
+      </div>
     );
   }
 }
