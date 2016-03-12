@@ -47,10 +47,11 @@ export default class Icon extends Component {
 
   static propTypes = {
     color: React.PropTypes.string,
+    height: React.PropTypes.number,
     kind: React.PropTypes.oneOf(iconList).isRequired,
     preview: React.PropTypes.bool,
+    onClick: React.PropTypes.func,
     size: React.PropTypes.number,
-    height: React.PropTypes.number,
     width: React.PropTypes.number,
   };
 
@@ -60,10 +61,10 @@ export default class Icon extends Component {
   }
 
   render() {
-    const {kind, preview} = this.props
+    const {kind, preview, onClick} = this.props
 
     return (
-      <div>
+      <div onClick={onClick}>
         {preview ? this.renderPreview() : this.renderIcon(kind)}
       </div>
     );

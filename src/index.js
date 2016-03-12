@@ -34,7 +34,7 @@ export default function configureSvgIcon(config) {
     const comment = config.comment || defaultComment;
     const reactPureRender = config.reactPureRender;
 
-    const svgPromises = svgs.map(file => minifySvg(file));
+    const svgPromises = svgs.map(file => minifySvg(file, fs.readFileSync(file).toString()));
     Promise.all(svgPromises).then(results => {
       const icons = results.map(result => {
         return {

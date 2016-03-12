@@ -51,7 +51,7 @@ export default class Icon extends Component {
   renderPreviewKind(kind) {
     return (
       <span key={kind}>
-        <h3>&lt;Icon kind={kind} /&gt;</h3>
+        <h3>&lt;Icon kind="{kind}" /&gt;</h3>
         {this.renderIcon(kind)}
       </span>
     )
