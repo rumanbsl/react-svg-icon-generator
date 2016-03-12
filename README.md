@@ -1,7 +1,7 @@
 React SVG Icon
 ==============
 
-Generate react component from svg icons to sho, resize and recolor them.
+Generate React Icon Component from SVG icons to show, resize and recolor them.
 
 ## Preview
 
