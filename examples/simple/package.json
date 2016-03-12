@@ -1,23 +1,23 @@
 {
-  "name": "react-svg-icon-example",
+  "name": "react-svg-icon-generator-example",
   "version": "1.0.0",
-  "description": "react-svg-icon-description",
+  "description": "react-svg-icon-generator-description",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/blueberry/react-svg-icon.git"
+    "url": "https://github.com/blueberry/react-svg-icon-generator.git"
   },
   "keywords": [
     "react-svg-icon"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/blueberry/react-svg-icon/issues"
+    "url": "https://github.com/blueberry/react-svg-icon-generator/issues"
   },
-  "homepage": "https://github.com/blueberry/react-svg-icon",
+  "homepage": "https://github.com/blueberry/react-svg-icon-generator",
   "dependencies": {
     "react": "^0.13.3"
   },

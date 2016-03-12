@@ -1,4 +1,4 @@
-React SVG Icon
+React SVG Icon Generator
 ==============
 
 Generate React Icon Component from SVG icons to show, resize and recolor them.
@@ -11,14 +11,14 @@ Generate React Icon Component from SVG icons to show, resize and recolor them.
 
 you need to add this just to development, because it will generate self contained react component directly to your codebase
 ```bash
-npm install --save-dev react-svg-icon
+npm install --save-dev react-svg-icon-generator
 ```
 
 ## Setup gulp task simple
 
 
 ```js
-const configureSvgIcon = require('react-svg-icon');
+const configureSvgIcon = require('react-svg-icon-generator');
 
 configureSvgIcon({
   destination: path.join(__dirname, 'components', 'Icon.js'),
@@ -85,10 +85,12 @@ export default class App extends Component {
 ## Development
 
 ```bash
-git clone git@github.com:blueberryapps/react-svg-icon.git
+git clone git@github.com:blueberryapps/react-svg-icon-generator.git
 cd react-svg-icon
 npm i
+npm link
 cd examples/simple
+npm link react-svg-icon-generator
 npm i
 gulp svg-icon
 npm start
