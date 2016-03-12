@@ -71,6 +71,9 @@ export default class App extends Component {
         Setup color and bounding width and height to size (square)
         <Icon kind='close' color='red' size={600} />
 
+        Setup onClick behavior
+        <Icon kind='close' onClick={() => alert('clicked on icon')} />
+
         Show all icons at once with description (for finding right icon)
         <Icon preview />
       </div>

@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import React, { Component } from 'react';
 import Icon from './Icon';
 
@@ -13,6 +14,9 @@ export default class App extends Component {
 
         Setup color and bounding width and height to size (square)
         <Icon kind='close' color='red' size={300} />
+
+        Setup onClick behavior
+        <Icon kind='close' onClick={() => alert('clicked on icon')} />
 
         Show all icons with description (for finding right icon)
         <Icon preview />
