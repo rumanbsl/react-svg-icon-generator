@@ -8,7 +8,6 @@ const svgo = new SVGOptim({
     'removeMetadata',
     'removeEditorsNSData',
     'cleanupAttrs',
-    'minifyStyles',
     'convertStyleToAttrs',
     'cleanupIDs',
     'removeRasterImages',

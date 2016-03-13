@@ -63,7 +63,7 @@ export default class Icon extends Component {
     switch (kind) {
       default: return null;
       {% for icon in icons -%}
-        case ('{{icon.name}}'): return ({{icon.svg}});
+        case ('{{icon.name}}'): return ({{icon.svg | safe}});
       {% endfor -%}
     }
   }
