@@ -3,7 +3,9 @@ React SVG Icon Generator
 
 Generate React Icon Component from SVG icons to show, resize and recolor them.
 
-## Preview
+We have prepared live demo for you at [React SVG Icon Live Generator](https://react-svg-icon-live-generator.herokuapp.com)
+
+## Preview of Generated Component
 
 ![Preview](https://raw.githubusercontent.com/blueberryapps/react-svg-icon-generator/master/examples/previews.png)
 
