@@ -50,5 +50,5 @@ export default function configureGenerator(config) {
       console.log('Generated SVG Icon component to:', iconDestination); // eslint-disable-line no-console
       console.log(icons.map(icon => `<Icon kind="${icon.name}" />`).join('\n')); // eslint-disable-line no-console
     });
-  }
+  };
 }
