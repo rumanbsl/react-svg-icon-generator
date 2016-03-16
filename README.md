@@ -46,7 +46,7 @@ configureSvgIcon({
   destination: path.join(__dirname, 'components', 'Icon.js'),
   reactPureRender: true,
   svgDir: path.join(__dirname, 'icons'),
-  template: path.join(_dirname, 'template', 'icon.nunjucks'),
+  template: path.join(__dirname, 'template', 'icon.nunjucks'),
 });
 ```
 
