@@ -18,5 +18,5 @@ export default function getSvgsInDir(dir) {
     }
 
     return absolutePath;
-  }));
+  })).filter(filePath => filePath !== null);
 }
