@@ -44,7 +44,7 @@ export default function configureGenerator(config) {
 
       fs.writeFileSync(
         iconDestination,
-        nunjucks.renderString(templateContent, {icons, comment, reactPureRender})
+        nunjucks.renderString(templateContent, {icons, comment, reactPureRender, radium: config.radium})
       );
 
       console.log('Generated SVG Icon component to:', iconDestination); // eslint-disable-line no-console

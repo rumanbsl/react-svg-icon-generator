@@ -7,6 +7,6 @@ export function cleanupSvg(svg) {
     .replace(/width="\d+"/, '')
     .replace(/height="\d+"/, '')
     .replace(/fill="#?\w+"/g, '')
-    .replace(/viewBox/, 'fill={color} height={height || size} width={width || size} viewBox')
+    .replace(/viewBox/, 'fill={color} height={height || size} width={width || size} onClick={onClick} style={style} viewBox')
     .replace(/\s{2,}/g, ' ');
 }
