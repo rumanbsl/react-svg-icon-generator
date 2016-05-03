@@ -93,4 +93,4 @@ export default class Icon extends Component {
 
 {% if radium %}
 export default Radium(Icon)
-{%- else %}
+{%- endif %}
