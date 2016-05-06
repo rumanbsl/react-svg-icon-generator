@@ -1,4 +1,4 @@
-const configureSvgIcon = require('react-svg-icon-generator');
+const configureSvgIcon = require('react-svg-icon-generator').default;
 const path = require('path');
 
 configureSvgIcon({
