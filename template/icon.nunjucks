@@ -34,12 +34,12 @@ export default class Icon extends Component {
     preview: React.PropTypes.bool,
     size: React.PropTypes.number,
     style: React.PropTypes.oneOfType([
-      React.PropTypes.arrayOf(React.PropTypes.object),
+      React.PropTypes.array,
       React.PropTypes.object
     ]),
     width: React.PropTypes.number,
     wrapperStyle: React.PropTypes.oneOfType([
-      React.PropTypes.arrayOf(React.PropTypes.object),
+      React.PropTypes.array,
       React.PropTypes.object
     ])
   };
