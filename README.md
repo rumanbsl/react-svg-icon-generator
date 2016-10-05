@@ -53,7 +53,7 @@ configureSvgIcon({
 
 
 - **comment** (optional) - it will be added to generated component, so other developer will know what to do
-- **reactPureRender** (optional) - it will use `import Component from 'react-pure-render/component';` instead of `import {Component} from 'react';`
+- **reactPureRender** (optional) - it will use `import {PureComponent} from 'react';` instead of `import {Component} from 'react';`. If you use this, make sure you use React >= v15.3.0. 
 - **radium** (optional) - it will import radium and wrap Icon component with Radium wrapper
 - **template** (optional) - provide path to your custom template, you can look at example at [Icon.template](https://github.com/blueberryapps/react-svg-icon-generator/blob/master/template/icon.nunjucks)
 
