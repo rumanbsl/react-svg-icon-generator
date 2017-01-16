@@ -19,6 +19,7 @@
   },
   "keywords": [
     "react",
+    "react-native",
     "svg",
     "icon"
   ],
@@ -51,7 +52,8 @@
     "nunjucks": "^2.4.0",
     "svgo": "^0.6.2"
   },
-  "peerDependencies": {
-    "radium": ">=0.16"
+  "optionalDependencies": {
+    "radium": ">=0.16",
+    "react-native-svg": "^4.3.3"
   }
 }
