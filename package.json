@@ -3,6 +3,9 @@
   "version": "0.3.0",
   "description": "Generate React Icon Component from SVG icons to show, resize and recolor them.",
   "main": "lib/index.js",
+  "bin": {
+    "svg-icon-generate": "bin/svg-icon-generate.js"
+  },
   "scripts": {
     "clean": "rimraf lib dist",
     "build": "babel src --out-dir lib",
@@ -39,6 +42,7 @@
     "eslint-config-airbnb": "0.0.6",
     "eslint-plugin-react": "^2.3.0",
     "expect": "^1.6.0",
+    "gulp": ">=3",
     "isparta": "^3.0.3",
     "mocha": "^2.2.5",
     "rimraf": "^2.3.4",
@@ -47,10 +51,10 @@
   },
   "dependencies": {
     "bluebird": "^3.3.4",
-    "gulp": ">=3",
     "invariant": "^2.0.0",
     "nunjucks": "^2.4.0",
-    "svgo": "^0.6.2"
+    "svgo": "^0.6.2",
+    "yargs": "^6.6.0"
   },
   "optionalDependencies": {
     "radium": ">=0.16",
