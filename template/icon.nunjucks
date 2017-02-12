@@ -4,8 +4,7 @@
 import Radium from 'radium';
 {%- endif %}
 {% if reactPureRender %}
-import Component from 'react-pure-render/component';
-import React from 'react';
+import React, {PureComponent as Component} from 'react';
 {%- else %}
 import React, {Component} from 'react';
 {%- endif %}

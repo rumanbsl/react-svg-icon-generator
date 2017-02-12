@@ -59,7 +59,7 @@ configureSvgIcon({
 - **componentName** (optional) - it will change the name of the component, default to 'Icon'
 - **keepFillColor** (optional) - it will keep the original fill color from imported SVG in case you want to use multiple colors in your icon, therefore you will not be able to use `color` prop
 - **native** (optional) - it will generate component that can be used in React Native projects, this functionality depends on [react-native-svg](https://github.com/react-native-community/react-native-svg) library, you can easily overwrite [default native template](https://github.com/blueberryapps/react-svg-icon-generator/blob/master/template/icon_native.nunjucks) using *template* option
-- **reactPureRender** (optional) - it will use `import Component from 'react-pure-render/component';` instead of `import {Component} from 'react';`
+- **reactPureRender** (optional) - it will use `import {PureComponent} from 'react';` instead of `import {Component} from 'react';`. If you use this, make sure you use React >= v15.3.0. 
 - **radium** (optional) - it will import radium and wrap Icon component with Radium wrapper
 - **template** (optional) - provide path to your custom template, you can look at example at [Icon.template](https://github.com/blueberryapps/react-svg-icon-generator/blob/master/template/icon.nunjucks)
 
