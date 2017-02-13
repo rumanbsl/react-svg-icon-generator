@@ -5,6 +5,8 @@ Generate React Icon Component from SVG icons to show, resize and recolor them.
 
 We have prepared live demo for you at [React SVG Icon Live Generator](https://react-svg-icon-live-generator.herokuapp.com)
 
+📱Supports React Native 💕
+
 ## Fastest way to get your svg converted to React Component
 
 ```
