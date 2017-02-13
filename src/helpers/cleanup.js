@@ -6,8 +6,8 @@ function _camelCase(string) {
 
 function _basicCleanup(svg) {
   return svg
-    .replace(/width="\d+"/, '')
-    .replace(/height="\d+"/, '')
+    .replace(/width="\S+"/, '')
+    .replace(/height="\S+"/, '')
     .replace(/xmlns="(\S*)"/, '')
     .replace(/([\w-]+)="/g, (match) => _camelCase(match))
     .replace(/\s{2,}/g, ' ');
