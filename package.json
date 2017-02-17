@@ -55,9 +55,5 @@
     "nunjucks": "^2.4.0",
     "svgo": "^0.6.2",
     "yargs": "^6.6.0"
-  },
-  "optionalDependencies": {
-    "radium": ">=0.16",
-    "react-native-svg": "^4.3.3"
   }
 }
