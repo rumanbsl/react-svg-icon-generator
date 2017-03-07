@@ -9,6 +9,7 @@ function _basicCleanup(svg) {
     .replace(/width="\S+"/, '')
     .replace(/height="\S+"/, '')
     .replace(/xmlns="(\S*)"/, '')
+    .replace(/data-name="(.*?)"/, '')
     .replace(/([\w-]+)="/g, (match) => _camelCase(match))
     .replace(/\s{2,}/g, ' ');
 }
