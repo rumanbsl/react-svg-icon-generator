@@ -43,7 +43,6 @@
     "eslint-plugin-react": "^2.3.0",
     "expect": "^1.6.0",
     "gulp": ">=3",
-    "isparta": "^3.0.3",
     "mocha": "^2.2.5",
     "rimraf": "^2.3.4",
     "webpack": "^1.9.6",
