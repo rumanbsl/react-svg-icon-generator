@@ -1,5 +1,4 @@
-React SVG Icon Generator
-========================
+# React SVG Icon Generator [![Dependency Status](https://dependencyci.com/github/blueberryapps/react-svg-icon-generator/badge)](https://dependencyci.com/github/blueberryapps/react-svg-icon-generator)
 
 Generate React Icon Component from SVG icons to show, resize and recolor them.
 
