@@ -6,6 +6,7 @@ import React from 'react';
 {%- else %}
 import React, {Component} from 'react';
 {%- endif %}
+import PropTypes from 'prop-types';
 import {View, Text as NativeText} from 'react-native';
 import Svg, {
   Circle,
@@ -35,18 +36,18 @@ export default class {{componentName}} extends Component {
 
   static propTypes = {
     {%- if useColorProp %}
-    color: React.PropTypes.string,
+    color: PropTypes.string,
     {%- endif %}
-    height: React.PropTypes.number,
-    kind: React.PropTypes.oneOf([
+    height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    kind: PropTypes.oneOf([
       {%- for icon in icons %}
       '{{icon.name}}',
       {%- endfor %}
     ]).isRequired,
-    preview: React.PropTypes.bool,
-    size: React.PropTypes.number,
+    preview: PropTypes.bool,
+    size: PropTypes.number,
     style: View.propTypes.style,
-    width: React.PropTypes.number,
     wrapperStyle: View.propTypes.style,
   };
 
