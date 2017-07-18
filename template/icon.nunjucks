@@ -8,6 +8,7 @@ import React, {PureComponent as Component} from 'react';
 {%- else %}
 import React, {Component} from 'react';
 {%- endif %}
+import PropTypes from 'prop-types';
 
 const iconList = [
   {%- for icon in icons %}
@@ -23,25 +24,25 @@ export default class {{componentName}} extends Component {
 
   static propTypes = {
     {%- if useColorProp %}
-    color: React.PropTypes.string,
+    color: PropTypes.string,
     {%- endif %}
-    height: React.PropTypes.number,
-    kind: React.PropTypes.oneOf([
+    height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    kind: PropTypes.oneOf([
       {%- for icon in icons %}
       '{{icon.name}}',
       {%- endfor %}
     ]).isRequired,
-    onClick: React.PropTypes.func,
-    preview: React.PropTypes.bool,
-    size: React.PropTypes.number,
-    style: React.PropTypes.oneOfType([
-      React.PropTypes.array,
-      React.PropTypes.object
+    onClick: PropTypes.func,
+    preview: PropTypes.bool,
+    size: PropTypes.number,
+    style: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.object
     ]),
-    width: React.PropTypes.number,
-    wrapperStyle: React.PropTypes.oneOfType([
-      React.PropTypes.array,
-      React.PropTypes.object
+    wrapperStyle: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.object
     ])
   };
 
