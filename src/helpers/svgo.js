@@ -1,4 +1,5 @@
 import SVGOptim from 'svgo';
+import removeClass from '../plugins/removeClass';
 
 const svgo = new SVGOptim({
   plugins: [
@@ -37,10 +38,14 @@ const svgo = new SVGOptim({
     'removeTitle',
     'removeDesc',
     'removeDimensions',
-    'removeAttrs',
     'addClassesToSVGElement',
-    'removeStyleElement'
-  ]
+    'removeStyleElement',
+    {
+      removeAttrs: {
+        attrs: 'class',
+      },
+    },
+  ],
 });
 
 export default svgo;
