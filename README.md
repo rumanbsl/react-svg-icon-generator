@@ -114,6 +114,9 @@ export default class App extends Component {
         Setup color and bounding width and height to size (square)
         <Icon kind='close' color='red' size={600} />
 
+        Setup custom style and className
+        <Icon kind="arrow_left" style={{transform: 'scaleX(-1)'}} className="custom-class" />
+
         Setup onClick behavior
         <Icon kind='close' onClick={() => alert('clicked on icon')} />
 
