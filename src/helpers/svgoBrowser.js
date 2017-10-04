@@ -311,11 +311,15 @@ SVGO.prototype.optimize = function(svgstr, callback) {
         'removeTitle',
         'removeDesc',
         'removeDimensions',
-        'removeAttrs',
         'addClassesToSVGElement',
-        'removeStyleElement'
-      ]
-    })
+        'removeStyleElement',
+        {
+          removeAttrs: {
+            attrs: 'class',
+          },
+        },
+      ],
+    });
 
 
     if (this.config.error) return callback(this.config);

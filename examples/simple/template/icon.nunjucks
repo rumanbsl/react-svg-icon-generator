@@ -5,6 +5,7 @@ import React, {Component} from 'react';
 export default class Icon extends Component {
 
   static propTypes = {
+    className: React.PropTypes.string,
     color: React.PropTypes.string,
     kind: React.PropTypes.oneOf([
       {%- for icon in icons %}
@@ -41,7 +42,7 @@ export default class Icon extends Component {
 
 
   renderIcon() {
-    const {color, kind, size, height, width} = this.props;
+    const {color, kind, size, height, width, onClick, style, className} = this.props;
 
     switch (kind) {
       default: return null;

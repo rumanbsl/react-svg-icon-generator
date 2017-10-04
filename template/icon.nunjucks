@@ -23,6 +23,7 @@ export default class {{componentName}} extends Component {
 {%- endif %}
 
   static propTypes = {
+    className: PropTypes.string,
     {%- if useColorProp %}
     color: PropTypes.string,
     {%- endif %}
@@ -88,7 +89,7 @@ export default class {{componentName}} extends Component {
   }
 
   getIcon(kind) {
-    const {height, {{ 'color, ' if useColorProp }}onClick, size, style, width} = this.props;
+    const {height, {{ 'color, ' if useColorProp }}onClick, size, style, width, className} = this.props;
 
     switch (kind) {
       default: return null;
