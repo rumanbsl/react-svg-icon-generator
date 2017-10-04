@@ -10,7 +10,7 @@ We have prepared live demo for you at [React SVG Icon Live Generator](https://re
 
 ```
 yarn global add react-svg-icon-generator
-yarn react-svg-icon-generator -- --svgDir ./icons --destination ./Icon.tsx
+yarn svg-icon-generate -- --svgDir ./icons --destination ./Icon.tsx
 ```
 
 for detailed options run just `yarn react-svg-icon-generator`
