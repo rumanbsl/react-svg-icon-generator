@@ -1,5 +1,4 @@
 import SVGOptim from 'svgo';
-import removeClass from '../plugins/removeClass';
 
 const svgo = new SVGOptim({
   plugins: [
