@@ -11,7 +11,10 @@ function _basicCleanup(svg) {
     .replace(/xmlns="(\S*)"/, '')
     .replace(/data-name="(.*?)"/, '')
     .replace(/([\w-]+)="/g, (match) => _camelCase(match))
-    .replace(/\s{2,}/g, ' ');
+    .replace(/\s{2,}/g, ' ')
+    .replace(/xlink\:href="(\S*)"/g, 'xlinkHref="$1"')
+    .replace(/xmlns\:xlink="(\S*)"/g, 'xmlnsXlink="$1"')
+    .replace(/<style>(\S*)<\/style>/g, '');
 }
 
 export function cleanupName(name) {
