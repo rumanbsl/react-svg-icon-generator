@@ -132,7 +132,7 @@ export default class App extends Component {
 
 ```bash
 git clone git@github.com:blueberryapps/react-svg-icon-generator.git
-cd react-svg-icon
+cd react-svg-icon-generator
 yarn install
 yarn link
 cd examples/simple
