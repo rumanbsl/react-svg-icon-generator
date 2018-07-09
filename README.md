@@ -25,7 +25,7 @@ for detailed options run just `yarn react-svg-icon-generator`
 
 you need to add this just to development, because it will generate self contained react component directly to your codebase
 ```bash
-npm install --save-dev react-svg-icon-generator
+yarn install --save-dev react-svg-icon-generator
 ```
 
 ## Setup gulp task simple
@@ -133,13 +133,13 @@ export default class App extends Component {
 ```bash
 git clone git@github.com:blueberryapps/react-svg-icon-generator.git
 cd react-svg-icon
-npm i
-npm link
+yarn install
+yarn link
 cd examples/simple
-npm link react-svg-icon-generator
-npm i
+yarn link react-svg-icon-generator
+yarn install
 gulp svg-icon
-npm start
+yarn start
 open http://127.0.0.1:3000
 ```
 
