@@ -128,6 +128,8 @@ export default class App extends Component {
 }
 ```
 
+any prop which is not listed will be passed directly to svg as rest props.
+
 ## Development
 
 ```bash

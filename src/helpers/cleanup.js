@@ -20,7 +20,7 @@ export function cleanupName(name) {
 
 export function cleanupSvg(svg, keepFillColor) {
   const cleanedSvg = _basicCleanup(svg)
-    .replace(/viewBox/, 'height={height || size} width={width || size} onClick={onClick} style={style} className={className} viewBox');
+    .replace(/viewBox/, '{...rest} height={height || size} width={width || size} onClick={onClick} style={style} className={className} viewBox');
 
   return keepFillColor
     ? cleanedSvg
@@ -33,7 +33,7 @@ export function cleanupSvg(svg, keepFillColor) {
 
 export function cleanupNativeSvg(svg, keepFillColor) {
   const cleanedSvg = _basicCleanup(svg)
-    .replace(/viewBox/, 'height={height || size} width={width || size} style={style} viewBox')
+    .replace(/viewBox/, '{...rest} height={height || size} width={width || size} style={style} viewBox')
     .replace(/\<[a-z]|\<\/[a-z]/g, (match) => match.toUpperCase());
 
   return keepFillColor
