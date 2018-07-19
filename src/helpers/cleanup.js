@@ -1,6 +1,8 @@
 function _camelCase(string) {
-  return string.replace(/^.|-./g, (letter, index) =>
-    index === 0 ? letter.toLowerCase() : letter.substr(1).toUpperCase()
+  return string.replace(
+    /^.|-./g,
+    (letter, index) =>
+      index === 0 ? letter.toLowerCase() : letter.substr(1).toUpperCase()
   );
 }
 
@@ -10,8 +12,11 @@ function _basicCleanup(svg) {
     .replace(/height="\S+"/, '')
     .replace(/xmlns="(\S*)"/, '')
     .replace(/data-name="(.*?)"/, '')
-    .replace(/([\w-]+)="/g, (match) => _camelCase(match))
-    .replace(/\s{2,}/g, ' ');
+    .replace(/([\w-]+)="/g, match => _camelCase(match))
+    .replace(/\s{2,}/g, ' ')
+    .replace(/xlink\:href="(\S*)"/g, 'xlinkHref="$1"')
+    .replace(/xmlns\:xlink="(\S*)"/g, 'xmlnsXlink="$1"')
+    .replace(/<style>(.*?)<\/style>/g, '');
 }
 
 export function cleanupName(name) {
@@ -34,7 +39,7 @@ export function cleanupSvg(svg, keepFillColor) {
 export function cleanupNativeSvg(svg, keepFillColor) {
   const cleanedSvg = _basicCleanup(svg)
     .replace(/viewBox/, '{...rest} height={height || size} width={width || size} style={style} viewBox')
-    .replace(/\<[a-z]|\<\/[a-z]/g, (match) => match.toUpperCase());
+    .replace(/\<[a-z]|\<\/[a-z]/g, match => match.toUpperCase());
 
   return keepFillColor
     ? cleanedSvg
