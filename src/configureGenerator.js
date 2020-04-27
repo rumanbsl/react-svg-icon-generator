@@ -3,7 +3,7 @@ import getSvsgInDir from './helpers/getSvgsInDir';
 import minifySvg from './helpers/minifySvg';
 import nunjucks from 'nunjucks';
 import path from 'path';
-import {cleanupName, cleanupNativeSvg, cleanupSvg} from './helpers/cleanup';
+import { cleanupName, cleanupNativeSvg, cleanupSvg } from './helpers/cleanup';
 
 nunjucks.configure({ autoescape: false });
 
@@ -13,9 +13,21 @@ const defaultComponentName = 'Icon';
 export default function configureGenerator(config) {
   return () => {
     const componentName = config.componentName || defaultComponentName;
-    const defaultTemplate = config.native
-      ? path.join(__dirname, '..', 'template', 'icon_native.nunjucks')
-      : path.join(__dirname, '..', 'template', 'icon.nunjucks');
+    const defaultTemplate = ((c) => {
+      if (c.native) {
+        if (c.tsx) {
+          return path.join(__dirname, '..', 'template', 'icon_native.tsx.nunjucks')
+        } else {
+          return path.join(__dirname, '..', 'template', 'icon_native.nunjucks')
+        }
+      } else {
+        if (c.tsx) {
+          return path.join(__dirname, '..', 'template', 'icon-tsx.nunjucks')
+        } else {
+          return path.join(__dirname, '..', 'template', 'icon.nunjucks')
+        }
+      }
+    })(config);
     const template = config.template || defaultTemplate;
     const templateFile = path.isAbsolute(template)
       ? template
@@ -59,8 +71,10 @@ export default function configureGenerator(config) {
         })
       );
 
-      console.log(`Generated ${componentName} component to:`, iconDestination); // eslint-disable-line no-console
-      console.log(icons.map(icon => `<${componentName} kind="${icon.name}" />`).join('\n')); // eslint-disable-line no-console
+      if (config.verbose) {
+        console.log(`Generated ${componentName} component to:`, iconDestination); // eslint-disable-line no-console
+        console.log(icons.map(icon => `<${componentName} kind="${icon.name}" />`).join('\n')); // eslint-disable-line no-console
+      }
     }).catch(error => console.error(error)); // eslint-disable-line no-console
   };
 }
