@@ -40,7 +40,7 @@ export default class {{componentName}} extends Component {
     {%- endif %}
     height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    kind: PropTypes.oneOf([
+    name: PropTypes.oneOf([
       {%- for icon in icons %}
       '{{icon.name}}',
       {%- endfor %}
@@ -59,43 +59,43 @@ export default class {{componentName}} extends Component {
   }
 
   render() {
-    const {kind, preview} = this.props;
+    const {name, preview} = this.props;
 
     return preview ?
       this.renderPreview() :
-      this.renderIcon(kind);
+      this.renderIcon(name);
   }
 
   renderPreview() {
     return (
       <View>
-        {iconList.map(kind => this.renderPreviewKind(kind))}
+        {iconList.map(name => this.renderPreviewKind(name))}
       </View>
     );
   }
 
-  renderIcon(kind) {
+  renderIcon(name) {
     const {wrapperStyle} = this.props;
 
     if (wrapperStyle)
-      return <View style={wrapperStyle}>{this.getIcon(kind)}</View>;
+      return <View style={wrapperStyle}>{this.getIcon(name)}</View>;
 
-    return this.getIcon(kind);
+    return this.getIcon(name);
   }
 
-  renderPreviewKind(kind) {
+  renderPreviewKind(name) {
     return (
-      <View key={kind}>
-        <NativeText>&lt;Icon kind="{kind}" /&gt;</NativeText>
-        {this.renderIcon(kind)}
+      <View key={name}>
+        <NativeText>&lt;Icon name="{name}" /&gt;</NativeText>
+        {this.renderIcon(name)}
       </View>
     );
   }
 
-  getIcon(kind) {
+  getIcon(name) {
     const {height, {{ 'color, ' if useColorProp }}size, style, width, ...rest} = this.props;
 
-    switch (kind) {
+    switch (name) {
       default: return null;
       {% for icon in icons -%}
         case ('{{icon.name}}'): return ({{icon.svg | safe}});
