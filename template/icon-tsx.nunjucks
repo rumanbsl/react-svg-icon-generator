@@ -4,9 +4,9 @@
 import Radium from 'radium';
 {%- endif %}
 {% if reactPureRender %}
-import React, {PureComponent as Component} from 'react';
+import React, {PureComponent as Component, DOMAttributes, SVGAttributes, HTMLAttributes} from 'react';
 {%- else %}
-import React, {Component} from 'react';
+import React, {Component, DOMAttributes, SVGAttributes, HTMLAttributes} from 'react';
 {%- endif %}
 
 const iconList = [
@@ -66,7 +66,7 @@ export default class {{componentName}} extends Component<PropTypes> {
     return this.getIcon(kind)
   }
 
-  renderPreviewKind(kind) {
+  renderPreviewKind(kind: PropTypes["kind"]) {
     return (
       <div key={kind}>
         <h3>&lt;Icon kind="{kind}" /&gt;</h3>
