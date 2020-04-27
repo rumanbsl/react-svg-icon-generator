@@ -1,0 +1,92 @@
+/* eslint-disable */
+// {{comment}}
+{% if radium %}
+import Radium from 'radium';
+{%- endif %}
+{% if reactPureRender %}
+import React, {PureComponent as Component} from 'react';
+{%- else %}
+import React, {Component} from 'react';
+{%- endif %}
+
+const iconList = [
+  {%- for icon in icons %}
+  '{{icon.name}}',
+  {%- endfor %}
+] as const;
+
+type PropTypes = {
+  className?: string;
+  color?: string;
+  height?: number|string;
+  width?: number|string;
+  kind: typeof iconList[number];
+  onClick?: DOMAttributes<SVGSVGElement>["onClick"];
+  preview?: boolean;
+  size?: number;
+  style?: SVGAttributes<SVGSVGElement>["style"];
+  wrapperStyle?:HTMLAttributes<HTMLDivElement>["style"]
+};
+
+{% if radium %}
+class {{componentName}} extends Component<PropTypes> {
+{%- else %}
+export default class {{componentName}} extends Component<PropTypes> {
+{%- endif %}
+
+  static defaultProps = {
+    {%- if useColorProp %}
+    color: '#000',
+    {%- endif %}
+    size: 32
+  }
+
+  render() {
+    const {kind, preview} = this.props
+
+    return preview ?
+      this.renderPreview() :
+      this.renderIcon(kind)
+  }
+
+  renderPreview() {
+    return (
+      <div>
+        {iconList.map(kind => this.renderPreviewKind(kind))}
+      </div>
+    )
+  }
+
+  renderIcon(kind: PropTypes["kind"]) {
+    const {wrapperStyle} = this.props;
+
+    if (wrapperStyle)
+      return <div style={wrapperStyle}>{this.getIcon(kind)}</div>
+
+    return this.getIcon(kind)
+  }
+
+  renderPreviewKind(kind) {
+    return (
+      <div key={kind}>
+        <h3>&lt;Icon kind="{kind}" /&gt;</h3>
+        {this.renderIcon(kind)}
+      </div>
+    )
+  }
+
+  getIcon(kind: PropTypes["kind"]) {
+    const {height, {{ 'color, ' if useColorProp }}onClick, size, style, width, className, ...rest} = this.props;
+
+    switch (kind) {
+      default: return null;
+      {% for icon in icons -%}
+        case ('{{icon.name}}'): return ({{icon.svg | safe}});
+      {% endfor -%}
+    }
+  }
+}
+
+{% if radium %}
+export default Radium({{componentName}})
+{%- endif %}
