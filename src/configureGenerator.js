@@ -53,9 +53,18 @@ export default function configureGenerator(config) {
     const svgPromises = svgs.map(file => minifySvg(file, fs.readFileSync(file).toString()));
     Promise.all(svgPromises).then(results => {
       const icons = results.map(result => {
+        const extractedWidth = result.svg.data
+          .substring(result.svg.data.indexOf("<svg"), result.svg.data.indexOf(">")).match(/width=\"?\'?[0-9]+[A-Za-z0-9]+?"/)[0]
+          .replace("width=\"", "").replace("\"", "")
+        const extractedHeight = result.svg.data
+          .substring(result.svg.data.indexOf("<svg"), result.svg.data.indexOf(">")).match(/height=\"?\'?[0-9]+[A-Za-z0-9]+?"/)[0]
+          .replace("height=\"", "").replace("\"", "")
+
         return {
           name: cleanupName(result.name),
-          svg: cleanupHelper(result.svg.data, config.keepFillColor)
+          svg: cleanupHelper(result.svg.data, config.keepFillColor, extractedWidth, extractedHeight),
+          extractedWidth,
+          extractedHeight,
         };
       }).sort((a, b) => a.name.localeCompare(b.name));
 

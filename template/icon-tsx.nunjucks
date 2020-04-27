@@ -20,7 +20,7 @@ type PropTypes = {
   color?: string;
   height?: number|string;
   width?: number|string;
-  name: typeof iconList[number];
+  kind: typeof iconList[number];
   onClick?: DOMAttributes<SVGSVGElement>["onClick"];
   preview?: boolean;
   size?: number;
@@ -42,43 +42,43 @@ export default class {{componentName}} extends Component<PropTypes> {
   }
 
   render() {
-    const {name, preview} = this.props
+    const {kind, preview} = this.props
 
     return preview ?
       this.renderPreview() :
-      this.renderIcon(name)
+      this.renderIcon(kind)
   }
 
   renderPreview() {
     return (
       <div>
-        {iconList.map(name => this.renderPreviewKind(name))}
+        {iconList.map(kind => this.renderPreviewKind(kind))}
       </div>
     )
   }
 
-  renderIcon(name: PropTypes["name"]) {
+  renderIcon(kind: PropTypes["kind"]) {
     const {wrapperStyle} = this.props;
 
     if (wrapperStyle)
-      return <div style={wrapperStyle}>{this.getIcon(name)}</div>
+      return <div style={wrapperStyle}>{this.getIcon(kind)}</div>
 
-    return this.getIcon(name)
+    return this.getIcon(kind)
   }
 
-  renderPreviewKind(name: PropTypes["name"]) {
+  renderPreviewKind(kind: PropTypes["kind"]) {
     return (
-      <div key={name}>
-        <h3>&lt;Icon name="{name}" /&gt;</h3>
-        {this.renderIcon(name)}
+      <div key={kind}>
+        <h3>&lt;Icon kind="{kind}" /&gt;</h3>
+        {this.renderIcon(kind)}
       </div>
     )
   }
 
-  getIcon(name: PropTypes["name"]) {
+  getIcon(kind: PropTypes["kind"]) {
     const {height, {{ 'color, ' if useColorProp }}onClick, size, style, width, className, ...rest} = this.props;
 
-    switch (name) {
+    switch (kind) {
       default: return null;
       {% for icon in icons -%}
         case ('{{icon.name}}'): return ({{icon.svg | safe}});

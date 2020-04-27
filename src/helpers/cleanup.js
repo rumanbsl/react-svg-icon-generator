@@ -23,9 +23,11 @@ export function cleanupName(name) {
   return name.replace(/u[A-Z0-9]{4}-/, '');
 }
 
-export function cleanupSvg(svg, keepFillColor) {
+export function cleanupSvg(svg, keepFillColor, extractedWidth, extractedHeight) {
+  const height = `typeof height === "number" ? height : (${extractedHeight} || size || 0)`;
+  const width = `typeof width === "number" ? width : (${extractedWidth} || size || 0)`;
   const cleanedSvg = _basicCleanup(svg)
-    .replace(/viewBox/, '{...rest} height={height || size} width={width || size} onClick={onClick} style={style} className={className} viewBox');
+    .replace(/viewBox/, `{...rest} height={${height}} width={${width}} onClick={onClick} style={style} className={className} viewBox`);
 
   return keepFillColor
     ? cleanedSvg
