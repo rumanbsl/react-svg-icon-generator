@@ -15,12 +15,14 @@ const iconList = [
   {%- endfor %}
 ] as const;
 
+export type IconList = typeof iconList[number]
+
 type PropTypes = {
   className?: string;
   color?: string;
   height?: number|string;
   width?: number|string;
-  name: typeof iconList[number];
+  name: IconList;
   onClick?: DOMAttributes<SVGSVGElement>["onClick"];
   preview?: boolean;
   size?: number;
