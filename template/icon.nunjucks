@@ -1,8 +1,5 @@
 /* eslint-disable */
 // {{comment}}
-{% if radium %}
-import Radium from 'radium';
-{%- endif %}
 {% if reactPureRender %}
 import React, {PureComponent as Component} from 'react';
 {%- else %}
@@ -16,12 +13,7 @@ const iconList = [
   {%- endfor %}
 ]
 
-{% if radium %}
-class {{componentName}} extends Component {
-{%- else %}
 export default class {{componentName}} extends Component {
-{%- endif %}
-
   static propTypes = {
     className: PropTypes.string,
     {%- if useColorProp %}
@@ -99,7 +91,3 @@ export default class {{componentName}} extends Component {
     }
   }
 }
-
-{% if radium %}
-export default Radium({{componentName}})
-{%- endif %}

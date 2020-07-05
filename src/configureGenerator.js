@@ -74,7 +74,6 @@ export default function configureGenerator(config) {
           icons,
           comment,
           reactPureRender,
-          radium: config.radium,
           useColorProp: !config.keepFillColor,
           componentName
         })

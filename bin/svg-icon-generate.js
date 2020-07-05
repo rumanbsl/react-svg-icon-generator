@@ -6,7 +6,6 @@ const argv = require('yargs')
   .options({
     tsx: { type: "boolean", default: true },
     reactPureRender: { type: "boolean", default: false },
-    radium: { type: "boolean", default: false },
     native: { type: "boolean", default: false },
     keepFillColor: { type: "boolean", default: false },
     template: { type: "string" },

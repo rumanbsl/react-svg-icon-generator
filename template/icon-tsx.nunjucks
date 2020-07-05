@@ -17,8 +17,8 @@ export type IconName = typeof iconNames[number];
 interface PropTypes {
   className?: string;
   color?: string;
-  height?: number|string;
-  width?: number|string;
+  height?: number;
+  width?: number;
   name: IconName;
   onClick?: DOMAttributes<SVGSVGElement>["onClick"];
   size?: number;
