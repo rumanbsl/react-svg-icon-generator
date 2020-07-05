@@ -1,94 +1,42 @@
 /* eslint-disable */
 // {{comment}}
-{% if radium %}
-import Radium from 'radium';
-{%- endif %}
 {% if reactPureRender %}
 import React, {PureComponent as Component, DOMAttributes, SVGAttributes, HTMLAttributes} from 'react';
 {%- else %}
 import React, {Component, DOMAttributes, SVGAttributes, HTMLAttributes} from 'react';
 {%- endif %}
 
-const iconList = [
+const iconNames = [
   {%- for icon in icons %}
   '{{icon.name}}',
   {%- endfor %}
 ] as const;
 
-export type IconList = typeof iconList[number]
+export type IconName = typeof iconNames[number];
 
-type PropTypes = {
+interface PropTypes {
   className?: string;
   color?: string;
   height?: number|string;
   width?: number|string;
-  name: IconList;
+  name: IconName;
   onClick?: DOMAttributes<SVGSVGElement>["onClick"];
-  preview?: boolean;
   size?: number;
   style?: SVGAttributes<SVGSVGElement>["style"];
   wrapperStyle?:HTMLAttributes<HTMLDivElement>["style"]
 };
 
-{% if radium %}
-class {{componentName}} extends Component<PropTypes> {
-{%- else %}
-export default class {{componentName}} extends Component<PropTypes> {
-{%- endif %}
-
-  static defaultProps = {
-    {%- if useColorProp %}
-    color: '#000',
-    {%- endif %}
-    size: 32
+const getIcon = (props: PropTypes) => {
+  const {height, color, onClick, name, size, style, width, className, ...rest} = props;
+  {% for icon in icons -%}
+  if(name === '{{icon.name}}') {
+    return ({{icon.svg | safe}});
   }
-
-  render() {
-    const {name, preview} = this.props
-
-    return preview ?
-      this.renderPreview() :
-      this.renderIcon(name)
-  }
-
-  renderPreview() {
-    return (
-      <div>
-        {iconList.map(name => this.renderPreviewKind(name))}
-      </div>
-    )
-  }
-
-  renderIcon(name: PropTypes["name"]) {
-    const {wrapperStyle} = this.props;
-
-    if (wrapperStyle)
-      return <div style={wrapperStyle}>{this.getIcon(name)}</div>
-
-    return this.getIcon(name)
-  }
-
-  renderPreviewKind(name: PropTypes["name"]) {
-    return (
-      <div key={name}>
-        <h3>&lt;Icon name="{name}" /&gt;</h3>
-        {this.renderIcon(name)}
-      </div>
-    )
-  }
-
-  getIcon(name: PropTypes["name"]) {
-    const {height, {{ 'color, ' if useColorProp }}onClick, size, style, width, className, ...rest} = this.props;
-
-    switch (name) {
-      default: return null;
-      {% for icon in icons -%}
-        case ('{{icon.name}}'): return ({{icon.svg | safe}});
-      {% endfor -%}
-    }
-  }
+  {% endfor -%}
+  return <div>🤷🏽‍♂️ no icon name given</div>
 }
 
-{% if radium %}
-export default Radium({{componentName}})
-{%- endif %}
+export default(props: PropTypes) => {
+  const {wrapperStyle} = props;
+  return wrapperStyle ? <div style={wrapperStyle}>{getIcon(props)}</div> : getIcon(props)
+}
