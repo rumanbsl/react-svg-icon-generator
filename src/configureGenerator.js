@@ -71,7 +71,7 @@ export default function configureGenerator(config) {
           }
           return ""
         })();
-
+        console.log({ extractedHeight, extractedWidth })
         return {
           name: cleanupName(result.name),
           svg: cleanupHelper(result.svg.data, config.keepFillColor, extractedWidth, extractedHeight),
