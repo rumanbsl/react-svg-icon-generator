@@ -13,7 +13,8 @@
     "test": "NODE_ENV=test mocha",
     "test:watch": "NODE_ENV=test mocha --watch",
     "test:cov": "babel-node ./node_modules/.bin/isparta cover ./node_modules/.bin/_mocha",
-    "prepublish": "npm run clean && npm run build"
+    "prepublish": "npm run clean && npm run build",
+    "push": " yarn build && git add . && git commit -m \"++\" && git push"
   },
   "repository": {
     "type": "git",

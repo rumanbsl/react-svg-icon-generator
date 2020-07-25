@@ -55,7 +55,8 @@ export default function configureGenerator(config) {
       const icons = results.map(result => {
         const extractedWidth = (() => {
           const arr = result.svg.data
-            .substring(result.svg.data.indexOf("<svg"), result.svg.data.indexOf(">")).match(/width=\"?\'?[0-9]+[A-Za-z0-9]+?"/);
+            .substring(result.svg.data.indexOf("<svg"), result.svg.data.indexOf(">"))
+            .match(/width=\"?\'?[0-9]+[A-Za-z0-9]+?"/);
           if (Array.isArray(arr) && arr.length > 0) {
             return arr[0].replace("width=\"", "").replace("\"", "")
           }
@@ -63,7 +64,8 @@ export default function configureGenerator(config) {
         })()
         const extractedHeight = (() => {
           const arr = result.svg.data
-            .substring(result.svg.data.indexOf("<svg"), result.svg.data.indexOf(">")).match(/height=\"?\'?[0-9]+[A-Za-z0-9]+?"/);
+            .substring(result.svg.data.indexOf("<svg"), result.svg.data.indexOf(">"))
+            .match(/height=\"?\'?[0-9]+[A-Za-z0-9]+?"/);
           if (Array.isArray(arr) && arr.length > 0) {
             return arr[0].replace("height=\"", "").replace("\"", "")
           }
