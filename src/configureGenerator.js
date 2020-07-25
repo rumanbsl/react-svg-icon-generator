@@ -15,7 +15,7 @@ export default function configureGenerator(config) {
     const componentName = config.componentName || defaultComponentName;
     const defaultTemplate = config.native
       ? path.join(__dirname, '..', 'template', 'icon_native.nunjucks')
-      : path.join(__dirname, '..', 'template', 'icon-tsx.nunjucks');
+      : path.join(__dirname, '..', 'template', 'icon.nunjucks');
     const template = config.template || defaultTemplate;
     const templateFile = path.isAbsolute(template)
       ? template
