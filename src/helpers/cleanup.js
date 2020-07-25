@@ -24,8 +24,8 @@ export function cleanupName(name) {
 }
 
 export function cleanupSvg(svg, keepFillColor, extractedWidth = 0, extractedHeight = 0) {
-  const height = `typeof height === "number" ? height : (${extractedHeight})`;
-  const width = `typeof width === "number" ? width : (${extractedWidth})`;
+  const height = extractedHeight ? `typeof height === "number" ? height : (${extractedHeight})` : `typeof height === "number" ? height : size || 0`;
+  const width = extractedWidth ? `typeof width === "number" ? width : (${extractedWidth})` : `typeof width === "number" ? width : size || 0)`;
   const cleanedSvg = _basicCleanup(svg)
     .replace(/viewBox/, `{...rest} height={${height}} width={${width}} onClick={onClick} style={style} className={className} viewBox`);
 
