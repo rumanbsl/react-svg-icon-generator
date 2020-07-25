@@ -54,18 +54,18 @@ export default function configureGenerator(config) {
     Promise.all(svgPromises).then(results => {
       const icons = results.map(result => {
         const extractedWidth = (() => {
-          const str = result.svg.data
+          const arr = result.svg.data
             .substring(result.svg.data.indexOf("<svg"), result.svg.data.indexOf(">")).match(/width=\"?\'?[0-9]+[A-Za-z0-9]+?"/);
-          if (typeof str === "string" && str.length > 0) {
-            return str[0].replace("width=\"", "").replace("\"", "")
+          if (Array.isArray(arr) && arr.length > 0) {
+            return arr[0].replace("width=\"", "").replace("\"", "")
           }
           return ""
         })()
         const extractedHeight = (() => {
-          const str = result.svg.data
+          const arr = result.svg.data
             .substring(result.svg.data.indexOf("<svg"), result.svg.data.indexOf(">")).match(/height=\"?\'?[0-9]+[A-Za-z0-9]+?"/);
-          if (typeof str === "string" && str.length > 0) {
-            return str[0].replace("height=\"", "").replace("\"", "")
+          if (Array.isArray(arr) && arr.length > 0) {
+            return arr[0].replace("height=\"", "").replace("\"", "")
           }
           return ""
         })();
