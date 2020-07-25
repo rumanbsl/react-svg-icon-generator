@@ -23,7 +23,7 @@ export function cleanupName(name) {
   return name.replace(/u[A-Z0-9]{4}-/, '');
 }
 
-export function cleanupSvg(svg, keepFillColor, extractedWidth = 0, extractedHeight = 0) {
+export function cleanupSvg(svg, keepFillColor, extractedWidth = "", extractedHeight = "") {
   const height = extractedHeight ? `typeof height === "number" ? height : (${extractedHeight})` : `typeof height === "number" ? height : size || 0`;
   const width = extractedWidth ? `typeof width === "number" ? width : (${extractedWidth})` : `typeof width === "number" ? width : size || 0)`;
   const cleanedSvg = _basicCleanup(svg)

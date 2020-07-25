@@ -53,12 +53,22 @@ export default function configureGenerator(config) {
     const svgPromises = svgs.map(file => minifySvg(file, fs.readFileSync(file).toString()));
     Promise.all(svgPromises).then(results => {
       const icons = results.map(result => {
-        const extractedWidth = result.svg.data
-          .substring(result.svg.data.indexOf("<svg"), result.svg.data.indexOf(">")).match(/width=\"?\'?[0-9]+[A-Za-z0-9]+?"/)[0]
-          .replace("width=\"", "").replace("\"", "")
-        const extractedHeight = result.svg.data
-          .substring(result.svg.data.indexOf("<svg"), result.svg.data.indexOf(">")).match(/height=\"?\'?[0-9]+[A-Za-z0-9]+?"/)[0]
-          .replace("height=\"", "").replace("\"", "")
+        const extractedWidth = (() => {
+          const str = result.svg.data
+            .substring(result.svg.data.indexOf("<svg"), result.svg.data.indexOf(">")).match(/width=\"?\'?[0-9]+[A-Za-z0-9]+?"/);
+          if (typeof str === "string" && str.length > 0) {
+            return str[0].replace("width=\"", "").replace("\"", "")
+          }
+          return ""
+        })()
+        const extractedHeight = (() => {
+          const str = result.svg.data
+            .substring(result.svg.data.indexOf("<svg"), result.svg.data.indexOf(">")).match(/height=\"?\'?[0-9]+[A-Za-z0-9]+?"/);
+          if (typeof str === "string" && str.length > 0) {
+            return str[0].replace("height=\"", "").replace("\"", "")
+          }
+          return ""
+        })();
 
         return {
           name: cleanupName(result.name),
