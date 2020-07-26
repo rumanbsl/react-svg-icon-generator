@@ -3,7 +3,7 @@
 {% if reactPureRender %}
 import React, {PureComponent as Component, DOMAttributes, SVGAttributes, HTMLAttributes} from 'react';
 {%- else %}
-import React, {Component, DOMAttributes, SVGAttributes, HTMLAttributes} from 'react';
+import React, {DOMAttributes, SVGAttributes, HTMLAttributes} from 'react';
 {%- endif %}
 
 const iconNames = [
