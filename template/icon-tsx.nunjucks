@@ -1,10 +1,6 @@
 /* eslint-disable */
 // {{comment}}
-{% if reactPureRender %}
-import React, {PureComponent as Component, DOMAttributes, SVGAttributes, HTMLAttributes} from 'react';
-{%- else %}
 import React, {DOMAttributes, SVGAttributes, HTMLAttributes} from 'react';
-{%- endif %}
 
 const iconNames = [
   {%- for icon in icons %}
